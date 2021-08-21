@@ -13,8 +13,8 @@
 
     <fragment
             android:id="@+id/navigation_dashboard"
-            android:name="com.unidy2002.douyin.ui.dashboard.DashboardFragment"
-            android:label="@string/title_dashboard"
+            android:name="com.unidy2002.douyin.ui.friends.FriendsFragment"
+            android:label="@string/title_friends"
             tools:layout="@layout/fragment_dashboard"/>
 
     <fragment
@@ -22,4 +22,10 @@
             android:name="com.unidy2002.douyin.ui.notifications.NotificationsFragment"
             android:label="@string/title_notifications"
             tools:layout="@layout/fragment_notifications"/>
+
+    <fragment
+            android:id="@+id/navigation_me"
+            android:name="com.unidy2002.douyin.ui.me.MeFragment"
+            android:label="@string/title_me"
+            tools:layout="@layout/fragment_me"/>
 </navigation>
