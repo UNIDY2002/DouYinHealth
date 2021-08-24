@@ -4,7 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <cn.jzvd.JzvdStd
+    <com.unidy2002.douyin.ui.home.JzvdHomePlayer
             android:id="@+id/video_slide_player"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
