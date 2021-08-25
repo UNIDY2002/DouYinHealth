@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import cn.jzvd.Jzvd
 import com.unidy2002.douyin.R
 import com.unidy2002.douyin.databinding.FragmentHomeBinding
 
@@ -29,10 +30,15 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = VideoSlideAdapter(
                 listOf(
-                    "https://vfx.mtime.cn/Video/2021/07/30/mp4/210730103510484128.mp4",
-                    "https://vfx.mtime.cn/Video/2021/08/04/mp4/210804172404829125.mp4",
-                    "https://vfx.mtime.cn/Video/2021/08/19/mp4/210819113439633160.mp4",
-                    "https://vfx.mtime.cn/Video/2021/08/11/mp4/210811091857592154.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/hua-ge-shi-guo-ju-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/zha-zhi-bei-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/shi-dan-e-rong-bei-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/lyu-shi-zhe-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2021/04/fu-chou-zhe-lian-meng-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/fen-zi-liao-li-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/bai-cao-wei-li-he-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/mac-kou-hong-mxdia720v.mp4",
+                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/zhen-zhu-mei-xue-cai-zhuang-mxdia720v.mp4",
                 )
             )
 
@@ -45,6 +51,7 @@ class HomeFragment : Fragment() {
                             ?.run {
                                 val currPos = findFirstCompletelyVisibleItemPosition()
                                 if (currPos != -1 && currPos != position) {
+                                    Jzvd.releaseAllVideos()
                                     findViewByPosition(currPos)
                                         ?.findViewById<JzvdHomePlayer>(R.id.video_slide_player)
                                         ?.startVideo()
@@ -66,6 +73,9 @@ class HomeFragment : Fragment() {
 
     inner class VideoSlideAdapter(private val data: List<String>) :
         RecyclerView.Adapter<VideoSlideAdapter.ViewHolder>() {
+
+        private var zeroInitialized = false
+
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val videoPlayer: JzvdHomePlayer = view.findViewById(R.id.video_slide_player)
         }
@@ -76,7 +86,10 @@ class HomeFragment : Fragment() {
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
             viewHolder.videoPlayer.run {
                 setUp(data[position], "")
-                startVideo()
+                if (position == 0 && !zeroInitialized) {
+                    zeroInitialized = true
+                    startVideo()
+                }
             }
         }
 
