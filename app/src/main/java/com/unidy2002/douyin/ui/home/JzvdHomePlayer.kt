@@ -22,4 +22,9 @@ class JzvdHomePlayer(context: Context, attrs: AttributeSet) : JzvdStd(context, a
         bottomProgressBar.visibility = INVISIBLE
         mRetryLayout.visibility = INVISIBLE
     }
+
+    override fun onCompletion() {
+        super.onCompletion()
+        startVideo()
+    }
 }
