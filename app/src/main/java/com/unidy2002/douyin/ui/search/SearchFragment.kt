@@ -1,12 +1,10 @@
 package com.unidy2002.douyin.ui.search
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.unidy2002.douyin.MainActivity
 import com.unidy2002.douyin.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -25,7 +23,7 @@ class SearchFragment : Fragment() {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
 
         binding.searchBackImage.setOnClickListener {
-            startActivity(Intent(activity, MainActivity::class.java))
+            activity?.finish()
         }
 
         return binding.root

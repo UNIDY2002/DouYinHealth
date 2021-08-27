@@ -7,6 +7,12 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/video_slide_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,11 +34,5 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginVertical="8dp"/>
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/video_slide_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
