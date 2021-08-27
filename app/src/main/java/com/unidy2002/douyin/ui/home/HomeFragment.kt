@@ -1,5 +1,6 @@
 package com.unidy2002.douyin.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import cn.jzvd.Jzvd
 import com.unidy2002.douyin.R
+import com.unidy2002.douyin.SearchActivity
 import com.unidy2002.douyin.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -26,6 +28,11 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.homeSearchButton.setOnClickListener {
+            startActivity(Intent(activity, SearchActivity::class.java))
+        }
+
         binding.videoSlideRecyclerView.run {
             layoutManager = LinearLayoutManager(context)
             adapter = VideoSlideAdapter(

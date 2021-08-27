@@ -4,6 +4,16 @@
     <string name="title_friends">朋友</string>
     <string name="title_notifications">消息</string>
     <string name="title_me">我</string>
+    <string name="search">搜索</string>
+    <string name="back">返回</string>
+    <string name="guess">猜你想搜:</string>
+    <string name="guess_1">亚马逊跨境电商</string>
+    <string name="guess_2">徐勤根被央媒怒批</string>
+    <string name="guess_3">河南迎来新一轮大暴雨</string>
+    <string name="guess_4">蜜雪冰城被罚9万元</string>
+    <string name="guess_5">央视批审丑流量</string>
+    <string name="guess_6">郑州市恢复新冠疫情不知道省略了什么</string>
+    <string name="hot">抖音热榜:</string>
     <string name="title_verification">实名认证</string>
     <string name="hint_verification">完成认证后将通过人脸识别登录</string>
     <string name="verification_action">开始实名认证</string>
