@@ -4,4 +4,8 @@
     <string name="title_friends">朋友</string>
     <string name="title_notifications">消息</string>
     <string name="title_me">我</string>
+    <string name="title_verification">实名认证</string>
+    <string name="hint_verification">完成认证后将通过人脸识别登录</string>
+    <string name="verification_action">开始实名认证</string>
+    <string name="avatar">头像</string>
 </resources>
