@@ -5,13 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment
-import com.unidy2002.douyin.R
-import com.unidy2002.douyin.databinding.FragmentVerificationBinding
+import com.unidy2002.douyin.databinding.FragmentConfigurationBinding
 
-class VerificationFragment : Fragment() {
+class ConfigurationFragment : Fragment() {
 
-    private var _binding: FragmentVerificationBinding? = null
+    private var _binding: FragmentConfigurationBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,10 +20,7 @@ class VerificationFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentVerificationBinding.inflate(inflater, container, false)
-        binding.verificationActionButton.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.nav_configuration)
-        }
+        _binding = FragmentConfigurationBinding.inflate(inflater, container, false)
         return binding.root
     }
 

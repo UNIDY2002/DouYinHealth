@@ -10,4 +10,10 @@
             android:name="com.unidy2002.douyin.ui.login.VerificationFragment"
             android:label="@string/title_verification"
             tools:layout="@layout/fragment_verification"/>
+
+    <fragment
+            android:id="@+id/nav_configuration"
+            android:name="com.unidy2002.douyin.ui.login.ConfigurationFragment"
+            android:label="@string/configuration"
+            tools:layout="@layout/fragment_configuration"/>
 </navigation>
