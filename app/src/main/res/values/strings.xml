@@ -6,6 +6,9 @@
     <string name="title_me">我</string>
     <string name="live">直播</string>
     <string name="search">搜索</string>
+    <string name="same_city">同城</string>
+    <string name="follow">关注</string>
+    <string name="recommend">推荐</string>
     <string name="like">点赞</string>
     <string name="comment">评论</string>
     <string name="forward">转发</string>
