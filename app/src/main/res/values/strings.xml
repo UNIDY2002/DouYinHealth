@@ -12,6 +12,9 @@
     <string name="like">点赞</string>
     <string name="comment">评论</string>
     <string name="forward">转发</string>
+    <string name="no_more">没有更多视频</string>
+    <string name="have_a_rest_before_returning">休息一下再来看吧</string>
+    <string name="have_a_rest">休息一下</string>
     <string name="back">返回</string>
     <string name="guess">猜你想搜:</string>
     <string name="guess_1">亚马逊跨境电商</string>

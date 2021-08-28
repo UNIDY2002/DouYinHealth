@@ -87,24 +87,34 @@ class HomeFragment : Fragment() {
         private val defaultText = "@人民日报\n奥运版《错位时空》，看到泪目！多想你能看到，今天奥运赛场上的中国骄傲！"
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val videoPlayer: JzvdHomePlayer = view.findViewById(R.id.video_slide_player)
-            val text: TextView = view.findViewById(R.id.video_text)
+            val videoPlayer: JzvdHomePlayer? = view.findViewById(R.id.video_slide_player)
+            val text: TextView? = view.findViewById(R.id.video_text)
+            val restButton: TextView? = view.findViewById(R.id.video_no_more_rest_button)
         }
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_video_slide, viewGroup, false))
+            ViewHolder(
+                LayoutInflater.from(viewGroup.context).inflate(
+                    if (viewType == 0) R.layout.item_video_slide else R.layout.item_video_no_more, viewGroup, false
+                )
+            )
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            viewHolder.videoPlayer.run {
+            viewHolder.videoPlayer?.run {
                 setUp(data[position], "")
                 if (position == 0 && !zeroInitialized) {
                     zeroInitialized = true
                     startVideo()
                 }
             }
-            viewHolder.text.text = defaultText
+            viewHolder.text?.text = defaultText
+            viewHolder.restButton?.setOnClickListener {
+                activity?.finish()
+            }
         }
 
-        override fun getItemCount() = data.size
+        override fun getItemCount() = data.size + 1
+
+        override fun getItemViewType(position: Int) = if (position == data.size) 1 else 0
     }
 }
