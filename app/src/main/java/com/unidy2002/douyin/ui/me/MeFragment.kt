@@ -21,6 +21,9 @@ class MeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMeBinding.inflate(inflater, container, false)
+        binding.meIconLeft.setOnClickListener { }
+        binding.meIconMiddle.setOnClickListener { }
+        binding.meIconRight.setOnClickListener { }
         return binding.root
     }
 
