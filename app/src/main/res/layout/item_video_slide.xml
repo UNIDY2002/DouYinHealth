@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.unidy2002.douyin.ui.home.JzvdHomePlayer
+    <com.unidy2002.douyin.components.JzvdAppPlayer
             android:id="@+id/video_slide_player"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

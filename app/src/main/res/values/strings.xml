@@ -26,6 +26,8 @@
     <string name="hot">抖音热榜:</string>
     <string name="voice_search_hint">点击上方语音搜索</string>
     <string name="voice_search">语音搜索</string>
+    <string name="more_live">更多直播</string>
+    <string name="start_live">开直播</string>
     <string name="title_verification">实名认证</string>
     <string name="hint_verification">完成认证后将通过人脸识别登录</string>
     <string name="verification_action">开始实名认证</string>

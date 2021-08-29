@@ -1,48 +1,32 @@
-package com.unidy2002.douyin.ui.home
+package com.unidy2002.douyin
 
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import cn.jzvd.Jzvd
-import com.unidy2002.douyin.LiveActivity
-import com.unidy2002.douyin.R
-import com.unidy2002.douyin.SearchActivity
 import com.unidy2002.douyin.components.JzvdAppPlayer
-import com.unidy2002.douyin.databinding.FragmentHomeBinding
+import com.unidy2002.douyin.databinding.ActivityLiveBinding
 
-class HomeFragment : Fragment() {
+class LiveActivity : AppCompatActivity() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: ActivityLiveBinding
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = ActivityLiveBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        binding.homeLiveButton.setOnClickListener {
-            startActivity(Intent(activity, LiveActivity::class.java))
-        }
-
-        binding.homeSearchButton.setOnClickListener {
-            startActivity(Intent(activity, SearchActivity::class.java))
-        }
-
-        binding.videoSlideRecyclerView.run {
+        binding.liveSlideRecyclerView.run {
             layoutManager = LinearLayoutManager(context)
-            adapter = VideoSlideAdapter(
+            adapter = LiveSlideAdapter(
                 listOf(
                     "https://www.vertiscreen.com/wp-content/uploads/2019/10/hua-ge-shi-guo-ju-mxdia720v.mp4",
                     "https://www.vertiscreen.com/wp-content/uploads/2019/10/zha-zhi-bei-mxdia720v.mp4",
@@ -76,51 +60,35 @@ class HomeFragment : Fragment() {
                 }
             })
         }
-        PagerSnapHelper().attachToRecyclerView(binding.videoSlideRecyclerView)
-        return binding.root
+        PagerSnapHelper().attachToRecyclerView(binding.liveSlideRecyclerView)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    inner class VideoSlideAdapter(private val data: List<String>) :
-        RecyclerView.Adapter<VideoSlideAdapter.ViewHolder>() {
+    inner class LiveSlideAdapter(private val data: List<String>) :
+        RecyclerView.Adapter<LiveSlideAdapter.ViewHolder>() {
 
         private var zeroInitialized = false
 
-        private val defaultText = "@人民日报\n奥运版《错位时空》，看到泪目！多想你能看到，今天奥运赛场上的中国骄傲！"
-
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val videoPlayer: JzvdAppPlayer? = view.findViewById(R.id.video_slide_player)
-            val text: TextView? = view.findViewById(R.id.video_text)
-            val restButton: TextView? = view.findViewById(R.id.video_no_more_rest_button)
+            val videoPlayer: JzvdAppPlayer = view.findViewById(R.id.live_slide_player)
+            val moreLiveImage: ImageView = view.findViewById(R.id.live_more_live_image)
         }
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int) =
-            ViewHolder(
-                LayoutInflater.from(viewGroup.context).inflate(
-                    if (viewType == 0) R.layout.item_video_slide else R.layout.item_video_no_more, viewGroup, false
-                )
-            )
+            ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.item_live_slide, viewGroup, false))
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            viewHolder.videoPlayer?.run {
+            viewHolder.videoPlayer.run {
                 setUp(data[position], "")
                 if (position == 0 && !zeroInitialized) {
                     zeroInitialized = true
                     startVideo()
                 }
             }
-            viewHolder.text?.text = defaultText
-            viewHolder.restButton?.setOnClickListener {
-                activity?.finish()
+            viewHolder.moreLiveImage.setOnClickListener {
+                binding.root.openDrawer(Gravity.END)
             }
         }
 
-        override fun getItemCount() = data.size + 1
-
-        override fun getItemViewType(position: Int) = if (position == data.size) 1 else 0
+        override fun getItemCount() = data.size
     }
 }

@@ -1,10 +1,10 @@
-package com.unidy2002.douyin.ui.home
+package com.unidy2002.douyin.components
 
 import android.content.Context
 import android.util.AttributeSet
 import cn.jzvd.JzvdStd
 
-class JzvdHomePlayer(context: Context, attrs: AttributeSet) : JzvdStd(context, attrs) {
+class JzvdAppPlayer(context: Context, attrs: AttributeSet) : JzvdStd(context, attrs) {
     override fun setAllControlsVisiblity(
         topCon: Int,
         bottomCon: Int,
