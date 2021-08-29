@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/live_total_max_0"
+            android:title="@string/live_total_max_0"/>
+
+    <item
+            android:id="@+id/live_total_max_1"
+            android:title="@string/live_total_max_1"/>
+
+    <item
+            android:id="@+id/live_total_max_2"
+            android:title="@string/default_live_total_max"/>
+
+</menu>

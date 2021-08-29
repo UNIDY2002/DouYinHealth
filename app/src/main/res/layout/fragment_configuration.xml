@@ -43,7 +43,7 @@
 
             <TextView
                     android:id="@+id/configuration_time_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/configure_time"
                     android:layout_marginTop="39dp"
@@ -63,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="gone">
+
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -71,24 +72,94 @@
                         android:textStyle="bold"
                         android:textSize="27sp"
                         android:layout_marginTop="13dp"/>
-                <TextView
-                        android:layout_width="wrap_content"
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/configure_video_single_max"
-                        android:textSize="24sp"
-                        android:layout_marginTop="8dp"/>
-                <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/configure_video_single_max"
+                            android:textSize="24sp"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                    <TextView
+                            android:id="@+id/configure_video_single_max_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_video_single_max"
+                            android:background="@color/light_grey"
+                            android:paddingVertical="2dp"
+                            android:paddingHorizontal="5dp"
+                            android:textSize="24sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/configure_video_total_max"
-                        android:textSize="24sp"
-                        android:layout_marginTop="8dp"/>
-                <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/configure_video_total_max"
+                            android:textSize="24sp"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                    <TextView
+                            android:id="@+id/configure_video_total_max_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_video_total_max"
+                            android:background="@color/light_grey"
+                            android:paddingVertical="2dp"
+                            android:paddingHorizontal="5dp"
+                            android:textSize="24sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/configure_rest_time"
-                        android:textSize="24sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/configure_rest_time"
+                            android:textSize="24sp"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                    <TextView
+                            android:id="@+id/configure_video_rest_time_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_rest_time"
+                            android:background="@color/light_grey"
+                            android:paddingVertical="2dp"
+                            android:paddingHorizontal="5dp"
+                            android:textSize="24sp"/>
+                </LinearLayout>
+
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -97,17 +168,40 @@
                         android:textStyle="bold"
                         android:textSize="27sp"
                         android:layout_marginTop="12dp"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/configure_live_total_max"
-                        android:textSize="24sp"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="24sp"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                    <TextView
+                            android:id="@+id/configure_video_total_live_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_live_total_max"
+                            android:background="@color/light_grey"
+                            android:paddingVertical="2dp"
+                            android:paddingHorizontal="5dp"
+                            android:textSize="24sp"/>
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                     android:id="@+id/configuration_fraud_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/configure_fraud"
                     android:layout_marginTop="23dp"
@@ -127,18 +221,83 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="gone">
-                <TextView
-                        android:layout_width="wrap_content"
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/configure_video_donate_max"
-                        android:textSize="24sp"
-                        android:layout_marginTop="13dp"/>
-                <TextView
-                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="13dp"
+                        android:gravity="center">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/configure_video_donate_max"
+                            android:textSize="24sp"
+                            android:labelFor="@id/configure_video_donate_max_edit_text"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                    <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/light_grey">
+
+                        <EditText
+                                android:id="@+id/configure_video_donate_max_edit_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="number"
+                                android:importantForAutofill="no"
+                                android:gravity="end"
+                                android:textSize="24sp"
+                                android:text="@string/default_donate_max"
+                                android:backgroundTint="#00000000"/>
+                    </LinearLayout>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yuan"
+                            android:textSize="24sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/configure_video_block_sales"
-                        android:textSize="24sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/configure_video_block_sales"
+                            android:textSize="24sp"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/configure_video_block_sales_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:layout_marginHorizontal="6dp"/>
+
+                    <TextView
+                            android:id="@+id/configure_video_block_sales_result"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yes"
+                            android:textSize="24sp"/>
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
