@@ -52,7 +52,6 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
-
         <TextView
                 android:id="@+id/bottom_nav_item_friends"
                 android:layout_width="wrap_content"
@@ -70,6 +69,18 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/home_new"
+                android:layout_marginTop="3dp"
+                android:contentDescription="@string/post"/>
+
+        <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
         <TextView
                 android:id="@+id/bottom_nav_item_notifications"
@@ -88,7 +99,6 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
-
         <TextView
                 android:id="@+id/bottom_nav_item_me"
                 android:layout_width="wrap_content"
@@ -105,8 +115,6 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
