@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
@@ -123,6 +124,7 @@ class HomeFragment : Fragment() {
             private val popupText1: TextView? = view.findViewById(R.id.popup_text_1)
             val reminderRestButton: TextView? = view.findViewById(R.id.video_reminder_rest_button)
             val iWantMore: TextView? = view.findViewById(R.id.video_reminder_i_want_more_button)
+            val adBlockedText: LinearLayout? = view.findViewById(R.id.home_ad_blocked_text)
 
             fun pop(visibility: Int, useText: Int) {
                 blurView?.visibility = visibility
@@ -161,6 +163,19 @@ class HomeFragment : Fragment() {
                             }
                         }
                     }, 12000)
+                    activity?.run {
+                        windowManager?.currentWindowMetrics?.bounds?.run {
+                            val width = this.width() + 888
+                            Timer(true).schedule(object : TimerTask() {
+                                override fun run() {
+                                    runOnUiThread {
+                                        viewHolder.adBlockedText?.animate()?.translationX(-width.toFloat())?.duration =
+                                            9000
+                                    }
+                                }
+                            }, 2000)
+                        }
+                    }
                 }
             }
             viewHolder.text?.text = data[position].description
