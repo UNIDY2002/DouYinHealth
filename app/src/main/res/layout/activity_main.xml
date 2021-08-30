@@ -47,7 +47,8 @@
                 android:textSize="21sp"
                 android:textColor="@color/white"
                 android:gravity="center"
-                android:background="@drawable/bottom_nav_selected_background"/>
+                android:background="@drawable/bottom_nav_selected_background"
+                android:paddingBottom="5dp"/>
 
         <View
                 android:layout_width="0dp"
@@ -64,7 +65,8 @@
                 android:text="@string/title_friends"
                 android:textSize="21sp"
                 android:textColor="@color/white"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:paddingBottom="5dp"/>
 
         <View
                 android:layout_width="0dp"
@@ -94,7 +96,8 @@
                 android:text="@string/title_notifications"
                 android:textSize="21sp"
                 android:textColor="@color/white"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:paddingBottom="5dp"/>
 
         <View
                 android:layout_width="0dp"
@@ -111,7 +114,8 @@
                 android:text="@string/title_me"
                 android:textSize="21sp"
                 android:textColor="@color/white"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:paddingBottom="5dp"/>
 
         <View
                 android:layout_width="0dp"
