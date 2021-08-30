@@ -14,8 +14,10 @@
             android:gravity="center">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/health_header_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:alpha="0">
 
             <ImageView
                     android:id="@+id/health_back"
@@ -55,34 +57,42 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+                android:id="@+id/health_bar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/health_subtitle"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:padding="6dp"/>
+                android:padding="6dp"
+                android:alpha="0"/>
 
         <ImageView
+                android:id="@+id/health_bar_graph"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/image_bar"
-                android:contentDescription="@string/health_subtitle"/>
+                android:contentDescription="@string/health_subtitle"
+                android:alpha="0"/>
 
         <TextView
+                android:id="@+id/health_line_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/health_half_year"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:alpha="0"/>
 
         <ImageView
+                android:id="@+id/health_line_graph"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/image_line"
-                android:contentDescription="@string/health_half_year"/>
+                android:contentDescription="@string/health_half_year"
+                android:alpha="0"/>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -92,24 +102,30 @@
                 android:orientation="vertical">
 
             <TextView
+                    android:id="@+id/health_report_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/report_analysis"
                     android:textColor="@color/black"
-                    android:padding="3dp"/>
+                    android:padding="3dp"
+                    android:alpha="0"/>
 
             <TextView
+                    android:id="@+id/health_report_subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sample_date"
                     android:textColor="@color/black"
-                    android:padding="3dp"/>
+                    android:padding="3dp"
+                    android:alpha="0"/>
 
             <LinearLayout
+                    android:id="@+id/health_report_row_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:baselineAligned="false">
+                    android:baselineAligned="false"
+                    android:alpha="0">
 
                 <LinearLayout
                         android:layout_width="0dp"
@@ -178,10 +194,12 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/health_report_row_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:baselineAligned="false">
+                    android:baselineAligned="false"
+                    android:alpha="0">
 
                 <LinearLayout
                         android:layout_width="0dp"
@@ -250,10 +268,12 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/health_report_row_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:alpha="0">
 
                 <ImageView
                         android:layout_width="30dp"
