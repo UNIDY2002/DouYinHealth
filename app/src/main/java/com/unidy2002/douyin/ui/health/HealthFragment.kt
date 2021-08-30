@@ -1,7 +1,5 @@
 package com.unidy2002.douyin.ui.health
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +18,20 @@ class HealthFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private fun show(view: View, delay: Long, duration: Long) {
+        Timer(true).schedule(object : TimerTask() {
+            override fun run() {
+                activity?.runOnUiThread {
+                    try {
+                        view.animate().alpha(1f).duration = duration
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }, delay)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,56 +43,16 @@ class HealthFragment : Fragment() {
             NavHostFragment.findNavController(this).navigate(R.id.navigation_exchange)
         }
 
-        binding.healthHeaderContainer.animate().alpha(1f).setDuration(1000)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    binding.healthBarTitle.animate().alpha(1f).setDuration(1000)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                binding.healthBarGraph.animate().alpha(1f).setDuration(1000)
-                                    .setListener(object : AnimatorListenerAdapter() {
-                                        override fun onAnimationEnd(animation: Animator?) {
-                                            binding.healthLineTitle.animate().alpha(1f).setDuration(1000)
-                                                .setListener(object : AnimatorListenerAdapter() {
-                                                    override fun onAnimationEnd(animation: Animator?) {
-                                                        binding.healthLineGraph.animate().alpha(1f).duration = 1000
-                                                    }
-                                                })
-                                        }
-                                    })
-                            }
-                        })
-                }
-            })
-
-        Timer(true).schedule(object : TimerTask() {
-            override fun run() {
-                activity?.runOnUiThread {
-                    binding.healthReportTitle.animate().alpha(1f).setDuration(1000)
-                        .setListener(object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator?) {
-                                binding.healthReportSubtitle.animate().alpha(1f).setDuration(1000)
-                                    .setListener(object : AnimatorListenerAdapter() {
-                                        override fun onAnimationEnd(animation: Animator?) {
-                                            binding.healthReportRow1.animate().alpha(1f).setDuration(1000)
-                                                .setListener(object : AnimatorListenerAdapter() {
-                                                    override fun onAnimationEnd(animation: Animator?) {
-                                                        binding.healthReportRow2.animate().alpha(1f).setDuration(1000)
-                                                            .setListener(object : AnimatorListenerAdapter() {
-                                                                override fun onAnimationEnd(animation: Animator?) {
-                                                                    binding.healthReportRow3.animate()
-                                                                        .alpha(1f).duration = 1000
-                                                                }
-                                                            })
-                                                    }
-                                                })
-                                        }
-                                    })
-                            }
-                        })
-                }
-            }
-        }, 5400)
+        show(binding.healthHeaderContainer, 0, 1000)
+        show(binding.healthBarTitle, 1000, 1000)
+        show(binding.healthBarGraph, 2000, 1000)
+        show(binding.healthLineTitle, 3000, 1000)
+        show(binding.healthLineGraph, 4000, 1000)
+        show(binding.healthReportTitle, 5200, 1000)
+        show(binding.healthReportSubtitle, 6200, 1000)
+        show(binding.healthReportRow1, 7200, 1000)
+        show(binding.healthReportRow2, 8200, 1000)
+        show(binding.healthReportRow3, 9200, 1000)
 
         return binding.root
     }
