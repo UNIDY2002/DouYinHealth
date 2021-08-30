@@ -45,15 +45,18 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = VideoSlideAdapter(
                 listOf(
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/hua-ge-shi-guo-ju-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/zha-zhi-bei-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/shi-dan-e-rong-bei-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/lyu-shi-zhe-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2021/04/fu-chou-zhe-lian-meng-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/fen-zi-liao-li-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/bai-cao-wei-li-he-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/mac-kou-hong-mxdia720v.mp4",
-                    "https://www.vertiscreen.com/wp-content/uploads/2019/10/zhen-zhu-mei-xue-cai-zhuang-mxdia720v.mp4",
+                    Pair(
+                        "https://www.vertiscreen.com/wp-content/uploads/2019/10/hua-ge-shi-guo-ju-mxdia720v.mp4",
+                        "@华格仕\n惬意生活，从品尝美食开始。好锅、好火、好食材，才能做出可口佳肴。",
+                    ),
+                    Pair(
+                        "https://www.vertiscreen.com/wp-content/uploads/2019/10/zha-zhi-bei-mxdia720v.mp4",
+                        "@dimo\n水杯？榨汁机？沉浸式吃水果 #生活#",
+                    ),
+                    Pair(
+                        "https://www.vertiscreen.com/wp-content/uploads/2019/10/shi-dan-e-rong-bei-mxdia720v.mp4",
+                        "@SIDANDA\n轻盈如雪 #视觉享受#",
+                    ),
                 )
             )
 
@@ -86,12 +89,10 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    inner class VideoSlideAdapter(private val data: List<String>) :
+    inner class VideoSlideAdapter(private val data: List<Pair<String, String>>) :
         RecyclerView.Adapter<VideoSlideAdapter.ViewHolder>() {
 
         private var zeroInitialized = false
-
-        private val defaultText = "@人民日报\n奥运版《错位时空》，看到泪目！多想你能看到，今天奥运赛场上的中国骄傲！"
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val videoPlayer: JzvdAppPlayer? = view.findViewById(R.id.video_slide_player)
@@ -109,13 +110,13 @@ class HomeFragment : Fragment() {
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
             viewHolder.videoPlayer?.run {
-                setUp(data[position], "")
+                setUp(data[position].first, "")
                 if (position == 0 && !zeroInitialized) {
                     zeroInitialized = true
                     startVideo()
                 }
             }
-            viewHolder.text?.text = defaultText
+            viewHolder.text?.text = data[position].second
             viewHolder.restButton?.setOnClickListener {
                 activity?.finish()
             }
