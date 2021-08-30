@@ -78,7 +78,6 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/home_new"
-                android:layout_marginTop="3dp"
                 android:contentDescription="@string/post"/>
 
         <View
