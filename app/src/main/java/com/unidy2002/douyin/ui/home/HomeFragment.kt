@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -45,17 +46,20 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = VideoSlideAdapter(
                 listOf(
-                    Pair(
+                    VideoInfo(
                         "https://www.vertiscreen.com/wp-content/uploads/2019/10/hua-ge-shi-guo-ju-mxdia720v.mp4",
                         "@华格仕\n惬意生活，从品尝美食开始。好锅、好火、好食材，才能做出可口佳肴。",
+                        R.drawable.home_avatar_0,
                     ),
-                    Pair(
+                    VideoInfo(
                         "https://www.vertiscreen.com/wp-content/uploads/2019/10/zha-zhi-bei-mxdia720v.mp4",
                         "@dimo\n水杯？榨汁机？沉浸式吃水果 #生活#",
+                        R.drawable.home_avatar_1,
                     ),
-                    Pair(
+                    VideoInfo(
                         "https://www.vertiscreen.com/wp-content/uploads/2019/10/shi-dan-e-rong-bei-mxdia720v.mp4",
                         "@SIDANDA\n轻盈如雪 #视觉享受#",
+                        R.drawable.home_avatar_2,
                     ),
                 )
             )
@@ -89,7 +93,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    inner class VideoSlideAdapter(private val data: List<Pair<String, String>>) :
+    inner class VideoSlideAdapter(private val data: List<VideoInfo>) :
         RecyclerView.Adapter<VideoSlideAdapter.ViewHolder>() {
 
         private var zeroInitialized = false
@@ -98,6 +102,7 @@ class HomeFragment : Fragment() {
             val videoPlayer: JzvdAppPlayer? = view.findViewById(R.id.video_slide_player)
             val text: TextView? = view.findViewById(R.id.video_text)
             val heart: ImageView? = view.findViewById(R.id.video_heart_image)
+            val avatar: ImageView? = view.findViewById(R.id.video_follow_image)
             val restButton: TextView? = view.findViewById(R.id.video_no_more_rest_button)
         }
 
@@ -110,13 +115,13 @@ class HomeFragment : Fragment() {
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
             viewHolder.videoPlayer?.run {
-                setUp(data[position].first, "")
+                setUp(data[position].url, "")
                 if (position == 0 && !zeroInitialized) {
                     zeroInitialized = true
                     startVideo()
                 }
             }
-            viewHolder.text?.text = data[position].second
+            viewHolder.text?.text = data[position].description
             viewHolder.restButton?.setOnClickListener {
                 activity?.finish()
             }
@@ -127,10 +132,17 @@ class HomeFragment : Fragment() {
                     setImageResource(if (selected) R.drawable.red_heart else R.drawable.video_like_icon)
                 }
             }
+            viewHolder.avatar?.setImageResource(data[position].avatar)
         }
 
         override fun getItemCount() = data.size + 1
 
         override fun getItemViewType(position: Int) = if (position == data.size) 1 else 0
     }
+
+    data class VideoInfo(
+        val url: String,
+        val description: String,
+        @DrawableRes val avatar: Int,
+    )
 }
