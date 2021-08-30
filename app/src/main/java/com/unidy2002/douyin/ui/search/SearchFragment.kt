@@ -3,12 +3,14 @@ package com.unidy2002.douyin.ui.search
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.unidy2002.douyin.R
 import com.unidy2002.douyin.databinding.FragmentSearchBinding
+import java.util.*
 
 class SearchFragment : Fragment() {
 
@@ -18,7 +20,7 @@ class SearchFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    @SuppressLint("InflateParams")
+    @SuppressLint("InflateParams", "ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -75,6 +77,30 @@ class SearchFragment : Fragment() {
             )
         }
 
+        var voiceTouched = false
+
+        binding.searchVoiceButton.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN && !voiceTouched) {
+                voiceTouched = true
+                Timer(true).schedule(object : TimerTask() {
+                    override fun run() {
+                        activity?.runOnUiThread {
+                            binding.searchEditText.setText("养")
+                        }
+                        Timer(true).schedule(object : TimerTask() {
+                            override fun run() {
+                                activity?.runOnUiThread {
+                                    binding.searchEditText.setText("养生")
+                                }
+                            }
+                        }, 50)
+                    }
+
+                }, 1100)
+            }
+            binding.searchVoiceButton.setImageResource(if (event.action == MotionEvent.ACTION_DOWN) R.drawable.voice_image_grey else R.drawable.voice_image)
+            true
+        }
         binding.searchVoiceButton.setOnClickListener { }
         binding.searchActionButton.setOnClickListener { }
 
