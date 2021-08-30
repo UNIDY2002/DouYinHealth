@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import com.unidy2002.douyin.R
 import com.unidy2002.douyin.databinding.FragmentExchangeBinding
 
@@ -29,6 +30,8 @@ class ExchangeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentExchangeBinding.inflate(inflater, container, false)
+
+        binding.exchangeBack.setOnClickListener { NavHostFragment.findNavController(this).navigateUp() }
 
         binding.exchangeCollectAllButton.setOnClickListener { }
 
