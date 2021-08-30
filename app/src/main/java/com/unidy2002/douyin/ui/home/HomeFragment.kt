@@ -163,19 +163,13 @@ class HomeFragment : Fragment() {
                             }
                         }
                     }, 12000)
-                    activity?.run {
-                        windowManager?.currentWindowMetrics?.bounds?.run {
-                            val width = this.width() + 888
-                            Timer(true).schedule(object : TimerTask() {
-                                override fun run() {
-                                    runOnUiThread {
-                                        viewHolder.adBlockedText?.animate()?.translationX(-width.toFloat())?.duration =
-                                            9000
-                                    }
-                                }
-                            }, 2000)
+                    Timer(true).schedule(object : TimerTask() {
+                        override fun run() {
+                            activity?.runOnUiThread {
+                                viewHolder.adBlockedText?.animate()?.translationX(-2000f)?.duration = 9000
+                            }
                         }
-                    }
+                    }, 2000)
                 }
             }
             viewHolder.text?.text = data[position].description
