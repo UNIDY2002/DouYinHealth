@@ -134,6 +134,9 @@ class HomeFragment : Fragment() {
                 if (visibility == View.VISIBLE) {
                     popupText0?.setText(if (useText == 1) R.string.reminder_title_1 else R.string.reminder_title_2)
                     popupText1?.setText(if (useText == 1) R.string.reminder_subtitle_1 else R.string.reminder_subtitle_2)
+                    videoPlayer?.mediaInterface?.pause()
+                } else {
+                    videoPlayer?.mediaInterface?.start()
                 }
             }
         }
