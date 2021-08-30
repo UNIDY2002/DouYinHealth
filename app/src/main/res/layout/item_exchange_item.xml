@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/exchange_item_coupon_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/coupon0"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/coupon"/>
+
+    <TextView
+            android:id="@+id/exchange_item_discount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/exchange_item_coupon_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="-32dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+    <TextView
+            android:id="@+id/exchange_item_exchange_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exchange"
+            android:paddingVertical="2dp"
+            android:textSize="15sp"
+            style="@style/ThemeButton"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="-10dp"
+            app:layout_constraintBottom_toBottomOf="@id/exchange_item_coin_image"/>
+
+    <ImageView
+            android:id="@+id/exchange_item_coin_image"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/coin"
+            app:layout_constraintTop_toBottomOf="@id/exchange_item_discount_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:contentDescription="@string/need_coin"/>
+
+    <TextView
+            android:id="@+id/exchange_item_cost_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/exchange_item_coin_image"
+            android:layout_marginStart="-10dp"
+            app:layout_constraintBottom_toBottomOf="@id/exchange_item_coin_image"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

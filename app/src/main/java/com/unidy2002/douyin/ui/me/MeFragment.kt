@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import com.unidy2002.douyin.R
 import com.unidy2002.douyin.databinding.FragmentMeBinding
 
 class MeFragment : Fragment() {
@@ -23,7 +25,9 @@ class MeFragment : Fragment() {
         _binding = FragmentMeBinding.inflate(inflater, container, false)
         binding.meIconLeft.setOnClickListener { }
         binding.meIconMiddle.setOnClickListener { }
-        binding.meIconRight.setOnClickListener { }
+        binding.meIconRight.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.navigation_health)
+        }
         return binding.root
     }
 
