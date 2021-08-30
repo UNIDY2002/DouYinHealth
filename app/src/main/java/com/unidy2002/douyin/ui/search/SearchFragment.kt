@@ -75,7 +75,7 @@ class SearchFragment : Fragment() {
             )
         }
 
-        binding.searchVoiceHint.setOnClickListener { }
+        binding.searchVoiceButton.setOnClickListener { }
         binding.searchActionButton.setOnClickListener { }
 
         return binding.root
