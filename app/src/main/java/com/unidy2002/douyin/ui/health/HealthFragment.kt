@@ -1,4 +1,4 @@
-package com.unidy2002.douyin.ui.me
+package com.unidy2002.douyin.ui.health
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,7 +23,7 @@ class HealthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHealthBinding.inflate(inflater, container, false)
-        binding.healthBack.setOnClickListener { NavHostFragment.findNavController(this).navigateUp() }
+        binding.healthBack.setOnClickListener { activity?.finish() }
         binding.healthExchangeButton.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(R.id.navigation_exchange)
         }

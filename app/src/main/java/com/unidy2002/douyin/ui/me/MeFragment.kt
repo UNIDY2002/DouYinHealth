@@ -1,12 +1,12 @@
 package com.unidy2002.douyin.ui.me
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import com.unidy2002.douyin.R
+import com.unidy2002.douyin.HealthActivity
 import com.unidy2002.douyin.databinding.FragmentMeBinding
 
 class MeFragment : Fragment() {
@@ -26,7 +26,7 @@ class MeFragment : Fragment() {
         binding.meIconLeft.setOnClickListener { }
         binding.meIconMiddle.setOnClickListener { }
         binding.meIconRight.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.navigation_health)
+            startActivity(Intent(activity, HealthActivity::class.java))
         }
         return binding.root
     }

@@ -1,4 +1,4 @@
-package com.unidy2002.douyin.ui.me
+package com.unidy2002.douyin.ui.health
 
 import android.annotation.SuppressLint
 import android.os.Bundle

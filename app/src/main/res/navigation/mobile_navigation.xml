@@ -16,16 +16,4 @@
             android:name="com.unidy2002.douyin.ui.me.MeFragment"
             android:label="@string/title_me"
             tools:layout="@layout/fragment_me"/>
-
-    <fragment
-            android:id="@+id/navigation_health"
-            android:name="com.unidy2002.douyin.ui.me.HealthFragment"
-            android:label="@string/health_guard"
-            tools:layout="@layout/fragment_health"/>
-
-    <fragment
-            android:id="@+id/navigation_exchange"
-            android:name="com.unidy2002.douyin.ui.me.ExchangeFragment"
-            android:label="@string/exchange_shop"
-            tools:layout="@layout/fragment_exchange"/>
 </navigation>

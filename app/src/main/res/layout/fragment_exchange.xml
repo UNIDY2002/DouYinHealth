@@ -4,10 +4,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            tools:context=".ui.me.ExchangeFragment"
+            tools:context=".ui.health.ExchangeFragment"
             android:paddingHorizontal="30dp"
             android:paddingVertical="10dp"
-            android:background="@color/white"
             android:scrollbars="none">
 
     <LinearLayout

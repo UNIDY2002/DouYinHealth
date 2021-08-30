@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/login_navigation"
+            app:startDestination="@id/navigation_health">
+
+    <fragment
+            android:id="@+id/navigation_health"
+            android:name="com.unidy2002.douyin.ui.health.HealthFragment"
+            android:label="@string/health_guard"
+            tools:layout="@layout/fragment_health"/>
+
+    <fragment
+            android:id="@+id/navigation_exchange"
+            android:name="com.unidy2002.douyin.ui.health.ExchangeFragment"
+            android:label="@string/exchange_shop"
+            tools:layout="@layout/fragment_exchange"/>
+
+
+</navigation>
