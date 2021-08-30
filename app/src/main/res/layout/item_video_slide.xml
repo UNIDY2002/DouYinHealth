@@ -20,6 +20,7 @@
             android:gravity="center">
 
         <ImageView
+                android:id="@+id/video_heart_image"
                 android:layout_width="36dp"
                 android:layout_height="50dp"
                 android:src="@drawable/video_like_icon"

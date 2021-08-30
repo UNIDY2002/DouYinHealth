@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -95,6 +96,7 @@ class HomeFragment : Fragment() {
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val videoPlayer: JzvdAppPlayer? = view.findViewById(R.id.video_slide_player)
             val text: TextView? = view.findViewById(R.id.video_text)
+            val heart: ImageView? = view.findViewById(R.id.video_heart_image)
             val restButton: TextView? = view.findViewById(R.id.video_no_more_rest_button)
         }
 
@@ -116,6 +118,13 @@ class HomeFragment : Fragment() {
             viewHolder.text?.text = defaultText
             viewHolder.restButton?.setOnClickListener {
                 activity?.finish()
+            }
+            viewHolder.heart?.run {
+                var selected = false
+                setOnClickListener {
+                    selected = !selected
+                    setImageResource(if (selected) R.drawable.red_heart else R.drawable.video_like_icon)
+                }
             }
         }
 
