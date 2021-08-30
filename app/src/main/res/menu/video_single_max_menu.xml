@@ -3,7 +3,7 @@
 
     <item
             android:id="@+id/video_single_max_0"
-            android:title="@string/video_single_max_0"/>
+            android:title="@string/default_video_single_max"/>
 
     <item
             android:id="@+id/video_single_max_1"
@@ -11,7 +11,11 @@
 
     <item
             android:id="@+id/video_single_max_2"
-            android:title="@string/default_video_single_max"/>
+            android:title="@string/video_single_max_2"/>
+
+    <item
+            android:id="@+id/video_single_max_3"
+            android:title="@string/video_single_max_3"/>
 
 
 </menu>
