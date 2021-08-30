@@ -18,6 +18,7 @@ import com.unidy2002.douyin.R
 import com.unidy2002.douyin.SearchActivity
 import com.unidy2002.douyin.components.JzvdAppPlayer
 import com.unidy2002.douyin.databinding.FragmentHomeBinding
+import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -77,6 +78,18 @@ class HomeFragment : Fragment() {
                                     findViewByPosition(currPos)
                                         ?.findViewById<JzvdAppPlayer>(R.id.video_slide_player)
                                         ?.startVideo()
+                                    (findViewHolderForAdapterPosition(currPos) as? VideoSlideAdapter.ViewHolder)?.run {
+                                        videoPlayer?.startVideo()
+                                        if (currPos == 1) {
+                                            Timer(true).schedule(object : TimerTask() {
+                                                override fun run() {
+                                                    activity?.runOnUiThread {
+                                                        pop(View.VISIBLE, 2)
+                                                    }
+                                                }
+                                            }, 5000)
+                                        }
+                                    }
                                     position = currPos
                                 }
                             }
@@ -104,6 +117,25 @@ class HomeFragment : Fragment() {
             val heart: ImageView? = view.findViewById(R.id.video_heart_image)
             val avatar: ImageView? = view.findViewById(R.id.video_follow_image)
             val restButton: TextView? = view.findViewById(R.id.video_no_more_rest_button)
+            private val blurView: View? = view.findViewById(R.id.video_reminder_blur_view)
+            private val reminderImage: ImageView? = view.findViewById(R.id.video_time_reminder_image)
+            private val popupText0: TextView? = view.findViewById(R.id.popup_text_0)
+            private val popupText1: TextView? = view.findViewById(R.id.popup_text_1)
+            val reminderRestButton: TextView? = view.findViewById(R.id.video_reminder_rest_button)
+            val iWantMore: TextView? = view.findViewById(R.id.video_reminder_i_want_more_button)
+
+            fun pop(visibility: Int, useText: Int) {
+                blurView?.visibility = visibility
+                reminderImage?.visibility = visibility
+                popupText0?.visibility = visibility
+                popupText1?.visibility = visibility
+                reminderRestButton?.visibility = visibility
+                iWantMore?.visibility = visibility
+                if (visibility == View.VISIBLE) {
+                    popupText0?.setText(if (useText == 1) R.string.reminder_title_1 else R.string.reminder_title_2)
+                    popupText1?.setText(if (useText == 1) R.string.reminder_subtitle_1 else R.string.reminder_subtitle_2)
+                }
+            }
         }
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int) =
@@ -119,6 +151,13 @@ class HomeFragment : Fragment() {
                 if (position == 0 && !zeroInitialized) {
                     zeroInitialized = true
                     startVideo()
+                    Timer(true).schedule(object : TimerTask() {
+                        override fun run() {
+                            activity?.runOnUiThread {
+                                viewHolder.pop(View.VISIBLE, 1)
+                            }
+                        }
+                    }, 12000)
                 }
             }
             viewHolder.text?.text = data[position].description
@@ -133,6 +172,12 @@ class HomeFragment : Fragment() {
                 }
             }
             viewHolder.avatar?.setImageResource(data[position].avatar)
+            viewHolder.reminderRestButton?.setOnClickListener {
+                activity?.finish()
+            }
+            viewHolder.iWantMore?.setOnClickListener {
+                viewHolder.pop(View.GONE, 0)
+            }
         }
 
         override fun getItemCount() = data.size + 1
