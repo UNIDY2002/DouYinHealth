@@ -78,12 +78,12 @@ class ExchangeFragment : Fragment() {
                 ExchangeItem(R.drawable.coupon0, "蔬菜6折", 120, false),
                 ExchangeItem(R.drawable.coupon0, "蔬菜8折", 60, true),
                 ExchangeItem(R.drawable.coupon0, "水果6折", 180, false),
-                ExchangeItem(R.drawable.coupon0, "水果8折", 90, true),
-                ExchangeItem(R.drawable.coupon0, "肉类6折", 240, false),
-                ExchangeItem(R.drawable.coupon0, "肉类6折", 120, false),
-                ExchangeItem(R.drawable.coupon0, "鸡蛋6折", 100, true),
-                ExchangeItem(R.drawable.coupon0, "鸡蛋8折", 50, true),
-                ExchangeItem(R.drawable.coupon0, "家电8折", 800, false),
+                ExchangeItem(R.drawable.coupon1, "水果8折", 90, true),
+                ExchangeItem(R.drawable.coupon1, "肉类6折", 240, false),
+                ExchangeItem(R.drawable.coupon1, "肉类6折", 120, false),
+                ExchangeItem(R.drawable.coupon2, "鸡蛋6折", 100, true),
+                ExchangeItem(R.drawable.coupon2, "鸡蛋8折", 50, true),
+                ExchangeItem(R.drawable.coupon2, "家电8折", 800, false),
             ).forEach {
                 addView(
                     layoutInflater.inflate(R.layout.item_exchange_item, null).apply {
