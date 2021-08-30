@@ -86,17 +86,19 @@ class SearchFragment : Fragment() {
                     override fun run() {
                         activity?.runOnUiThread {
                             binding.searchEditText.setText("养")
+                            binding.searchEditText.setSelection(1)
                         }
                         Timer(true).schedule(object : TimerTask() {
                             override fun run() {
                                 activity?.runOnUiThread {
                                     binding.searchEditText.setText("养生")
+                                    binding.searchEditText.setSelection(2)
                                 }
                             }
-                        }, 50)
+                        }, 300)
                     }
 
-                }, 1100)
+                }, 2500)
             }
             binding.searchVoiceButton.setImageResource(if (event.action == MotionEvent.ACTION_DOWN) R.drawable.voice_image_grey else R.drawable.voice_image)
             true
